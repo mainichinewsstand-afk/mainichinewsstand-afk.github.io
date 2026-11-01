@@ -1,0 +1,69 @@
+name: ニュース更新と公開
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # 1時間ごと(毎時17分)
+  workflow_dispatch:        # 手動実行ボタン
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: news-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 初回だけ、アプリ一式(bundle.b64)を展開する
+        run: |
+          if [ -f bundle.b64 ]; then
+            base64 -d bundle.b64 | tar -xz
+            git rm -q bundle.b64
+            git add -A
+            git -c user.name="news-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "アプリ一式を展開"
+            git push
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 依存パッケージを入れる
+        run: npm install --no-audit --no-fund
+
+      - name: アイコンを作る
+        run: npm run icons
+
+      - name: ニュースを取得
+        run: npm run fetch
+
+      - name: 取得結果を保存
+        run: |
+          git config user.name "news-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/news.json
+          if ! git diff --cached --quiet; then
+            git commit -m "ニュースを更新"
+            git pull --rebase -q || true
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
