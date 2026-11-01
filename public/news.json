@@ -1,6 +1,70 @@
 {
- "updatedAt": "2026-11-01T04:58:54.399Z",
+ "updatedAt": "2026-11-01T05:54:59.288Z",
  "articles": [
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "台風 小笠原諸島は影響長引く恐れ",
+   "url": "https://news.yahoo.co.jp/pickup/6600944?source=rss",
+   "publishedAt": "2026-11-01T05:46:37.000Z",
+   "id": "c37bb3032917"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "給食巡る投稿炎上 後悔ないと市議",
+   "url": "https://news.yahoo.co.jp/pickup/6600942?source=rss",
+   "publishedAt": "2026-11-01T05:31:39.000Z",
+   "id": "ba3b6806680a"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "芦田愛菜ドラマ Netflixで快挙",
+   "url": "https://news.yahoo.co.jp/pickup/6600941?source=rss",
+   "publishedAt": "2026-11-01T05:22:26.000Z",
+   "id": "e63148d1e479"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "佐伯俊氏 集英社との専属契約満了",
+   "url": "https://news.yahoo.co.jp/pickup/6600929?source=rss",
+   "publishedAt": "2026-11-01T05:19:50.000Z",
+   "id": "49ea1f21b2a7"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "SUPER BEAVER配信巡りフジ謝罪",
+   "url": "https://news.yahoo.co.jp/pickup/6600939?source=rss",
+   "publishedAt": "2026-11-01T05:18:31.000Z",
+   "id": "1c35614ebd5e"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "岩手で熊出没急減 ブナ豊作影響か",
+   "url": "https://news.yahoo.co.jp/pickup/6600940?source=rss",
+   "publishedAt": "2026-11-01T05:10:04.000Z",
+   "id": "521f18b3900f"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "全日本駅伝 早稲田大が大会新でV",
+   "url": "https://news.yahoo.co.jp/pickup/6600938?source=rss",
+   "publishedAt": "2026-11-01T05:06:31.000Z",
+   "id": "a27241f5724e"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "緊急事態条項の創設巡り賛否 見解",
+   "url": "https://news.yahoo.co.jp/pickup/6600935?source=rss",
+   "publishedAt": "2026-11-01T05:04:55.000Z",
+   "id": "047df5f36851"
+  },
   {
    "category": "sports",
    "source": "Yahoo!ニュース",
