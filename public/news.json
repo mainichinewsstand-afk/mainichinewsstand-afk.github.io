@@ -1,6 +1,14 @@
 {
- "updatedAt": "2026-11-01T07:12:35.881Z",
+ "updatedAt": "2026-11-01T08:08:30.756Z",
  "articles": [
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "松井監督 野球教室で豪快アーチ",
+   "url": "https://news.yahoo.co.jp/pickup/6600959?source=rss",
+   "publishedAt": "2026-11-01T07:37:38.000Z",
+   "id": "5e5142be7edd"
+  },
   {
    "category": "sports",
    "source": "Yahoo!ニュース",
@@ -832,14 +840,6 @@
    "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002728/",
    "publishedAt": "2026-10-29T08:46:39.000Z",
    "id": "e43227d543cd"
-  },
-  {
-   "category": "tech",
-   "source": "ITmedia AI+",
-   "title": "今、最も使われているプログラミング言語は？ AIコーディングでPython超えて急成長",
-   "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002719/",
-   "publishedAt": "2026-10-29T07:16:51.000Z",
-   "id": "2373b0b46c19"
   }
  ]
 }
