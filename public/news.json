@@ -1,6 +1,326 @@
 {
- "updatedAt": "2026-10-31T10:00:00.000Z",
+ "updatedAt": "2026-11-01T01:56:02.026Z",
  "articles": [
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "父娘の関係 自己開示が大切と識者",
+   "url": "https://news.yahoo.co.jp/pickup/6600916?source=rss",
+   "publishedAt": "2026-11-01T01:46:44.000Z",
+   "id": "e90d6d9646cd"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "消費減税 首相の質疑出席が焦点",
+   "url": "https://news.yahoo.co.jp/pickup/6600914?source=rss",
+   "publishedAt": "2026-11-01T01:36:11.000Z",
+   "id": "9273560aace6"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "大学駅伝 GPS機器トラブルで謝罪",
+   "url": "https://news.yahoo.co.jp/pickup/6600912?source=rss",
+   "publishedAt": "2026-11-01T01:26:28.000Z",
+   "id": "6db3ad261d50"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "GK鈴木彩艶 痛恨のオウンゴール",
+   "url": "https://news.yahoo.co.jp/pickup/6600913?source=rss",
+   "publishedAt": "2026-11-01T01:25:15.000Z",
+   "id": "e5e64bc6e5ea"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "オリ 三木・前楽天監督がHC就任",
+   "url": "https://news.yahoo.co.jp/pickup/6600909?source=rss",
+   "publishedAt": "2026-11-01T01:09:03.000Z",
+   "id": "4037d78505cf"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "仲野太賀 大河撮了「奇跡の連続」",
+   "url": "https://news.yahoo.co.jp/pickup/6600910?source=rss",
+   "publishedAt": "2026-11-01T01:01:06.000Z",
+   "id": "28b0748389a5"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "英首相 奴隷貿易で正式謝罪を検討",
+   "url": "https://news.yahoo.co.jp/pickup/6600907?source=rss",
+   "publishedAt": "2026-11-01T00:59:17.000Z",
+   "id": "e5c0fcffc243"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "共和党 トランプ氏から離反相次ぐ",
+   "url": "https://news.yahoo.co.jp/pickup/6600904?source=rss",
+   "publishedAt": "2026-11-01T00:58:11.000Z",
+   "id": "07c5cad3ef0d"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "バイナンス被害 北朝鮮関与とFBI",
+   "url": "https://news.yahoo.co.jp/pickup/6600906?source=rss",
+   "publishedAt": "2026-11-01T00:56:58.000Z",
+   "id": "81c4f2b2f210"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "のど自慢 MC明かす壮絶な舞台裏",
+   "url": "https://news.yahoo.co.jp/pickup/6600903?source=rss",
+   "publishedAt": "2026-11-01T00:41:55.000Z",
+   "id": "295e3fdfbf02"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "出国時に返金 新免税制度が開始",
+   "url": "https://news.yahoo.co.jp/pickup/6600900?source=rss",
+   "publishedAt": "2026-11-01T00:08:57.000Z",
+   "id": "395689279fa7"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "米大統領 造反・不祥事議員を称賛",
+   "url": "https://news.yahoo.co.jp/pickup/6600898?source=rss",
+   "publishedAt": "2026-11-01T00:08:45.000Z",
+   "id": "47bc9ffb2949"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "GMO攻撃者 被害者サイト開設か",
+   "url": "https://news.yahoo.co.jp/pickup/6600897?source=rss",
+   "publishedAt": "2026-10-31T23:55:13.000Z",
+   "id": "b40e40bc4119"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "DOWNTOWN+ 1周年で迎える関門",
+   "url": "https://news.yahoo.co.jp/pickup/6600896?source=rss",
+   "publishedAt": "2026-10-31T23:37:19.000Z",
+   "id": "fb0db14e58da"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "中国 台湾周辺海底ケーブル探査か",
+   "url": "https://news.yahoo.co.jp/pickup/6600895?source=rss",
+   "publishedAt": "2026-10-31T23:34:33.000Z",
+   "id": "a6bc6f100aee"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "AI学習への利用拒否をrobots.txtで一括指定へ OpenAIやGoogleなどが対応表明",
+   "url": "https://www.itmedia.co.jp/news/article/2611/01/2000002776/",
+   "publishedAt": "2026-10-31T23:31:07.000Z",
+   "id": "c999b40c8688"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "サンド伊達「まひ残らなかった」",
+   "url": "https://news.yahoo.co.jp/pickup/6600894?source=rss",
+   "publishedAt": "2026-10-31T23:20:12.000Z",
+   "id": "742bcc0052d7"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "フォーエバーヤング 連覇ならず",
+   "url": "https://news.yahoo.co.jp/pickup/6600893?source=rss",
+   "publishedAt": "2026-10-31T23:18:51.000Z",
+   "id": "290e857556ad"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "米国版凱旋門 建設中止求め提訴",
+   "url": "https://news.yahoo.co.jp/pickup/6600891?source=rss",
+   "publishedAt": "2026-10-31T23:09:10.000Z",
+   "id": "7315507e72c7"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "日米豪印外相会談 AIなど協力確認",
+   "url": "https://news.yahoo.co.jp/pickup/6600886?source=rss",
+   "publishedAt": "2026-10-31T22:50:15.000Z",
+   "id": "1551a4d9ccb0"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "広島 田中広輔氏のコーチ就任発表",
+   "url": "https://news.yahoo.co.jp/pickup/6600888?source=rss",
+   "publishedAt": "2026-10-31T22:41:56.000Z",
+   "id": "cc0b305b3e87"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "モスクワでテロ計画 米が露に警告",
+   "url": "https://news.yahoo.co.jp/pickup/6600883?source=rss",
+   "publishedAt": "2026-10-31T22:41:29.000Z",
+   "id": "9d88ca95b1e9"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "島田麻央SP首位 今季世界最高点",
+   "url": "https://news.yahoo.co.jp/pickup/6600885?source=rss",
+   "publishedAt": "2026-10-31T22:38:34.000Z",
+   "id": "0175c5063502"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "新田真剣佑が改名 前田真剣佑に",
+   "url": "https://news.yahoo.co.jp/pickup/6600884?source=rss",
+   "publishedAt": "2026-10-31T22:26:47.000Z",
+   "id": "13d47014d044"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "GMOが11/2に記者会見 社長出席",
+   "url": "https://news.yahoo.co.jp/pickup/6600879?source=rss",
+   "publishedAt": "2026-10-31T14:53:29.000Z",
+   "id": "af9f0c6955f4"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "GMO 24年にシステム脆弱性指摘",
+   "url": "https://news.yahoo.co.jp/pickup/6600878?source=rss",
+   "publishedAt": "2026-10-31T14:27:23.000Z",
+   "id": "e2ce4e359fb2"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "クラブツーリズム 432万件流出か",
+   "url": "https://news.yahoo.co.jp/pickup/6600875?source=rss",
+   "publishedAt": "2026-10-31T14:04:30.000Z",
+   "id": "db4bc0423ba8"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "路上プロレス一転中止 天心が説明",
+   "url": "https://news.yahoo.co.jp/pickup/6600876?source=rss",
+   "publishedAt": "2026-10-31T14:02:10.000Z",
+   "id": "74b675c62318"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "マック 商品そろう前でも客呼ぶ訳",
+   "url": "https://news.yahoo.co.jp/pickup/6600877?source=rss",
+   "publishedAt": "2026-10-31T13:56:06.000Z",
+   "id": "d3e920bbe4aa"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "高市首相 殉職した警察職員ら追悼",
+   "url": "https://news.yahoo.co.jp/pickup/6600868?source=rss",
+   "publishedAt": "2026-10-31T13:02:47.000Z",
+   "id": "910a389520e6"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "古着「オールドユニクロ」とは",
+   "url": "https://news.yahoo.co.jp/pickup/6600869?source=rss",
+   "publishedAt": "2026-10-31T13:00:26.000Z",
+   "id": "d8c5c8dd9efb"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "ウが製油所攻撃再開 ロシア副首相",
+   "url": "https://news.yahoo.co.jp/pickup/6600866?source=rss",
+   "publishedAt": "2026-10-31T12:40:32.000Z",
+   "id": "b01f36cdf626"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "サンド伊達 言えない言葉いくつか",
+   "url": "https://news.yahoo.co.jp/pickup/6600864?source=rss",
+   "publishedAt": "2026-10-31T12:28:46.000Z",
+   "id": "5fe6404fd265"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "参政・神谷氏 独AfD幹部と共鳴",
+   "url": "https://news.yahoo.co.jp/pickup/6600861?source=rss",
+   "publishedAt": "2026-10-31T12:20:14.000Z",
+   "id": "03626db91ba6"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "新山千春 母の病判明時はショック",
+   "url": "https://news.yahoo.co.jp/pickup/6600863?source=rss",
+   "publishedAt": "2026-10-31T12:08:27.000Z",
+   "id": "a121d16f6958"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "巨大キノコの新種「Dレックス」",
+   "url": "https://news.yahoo.co.jp/pickup/6600862?source=rss",
+   "publishedAt": "2026-10-31T12:07:35.000Z",
+   "id": "1a4166855fc5"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "身代金ウイルス 送金後追加要求も",
+   "url": "https://news.yahoo.co.jp/pickup/6600846?source=rss",
+   "publishedAt": "2026-10-31T09:27:19.000Z",
+   "id": "10a206037b94"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "高市氏ら首相の予算委答弁数 比較",
+   "url": "https://news.yahoo.co.jp/pickup/6600843?source=rss",
+   "publishedAt": "2026-10-31T09:04:33.000Z",
+   "id": "7f1156386d79"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "ブラックフライデー 先行セールも",
+   "url": "https://news.yahoo.co.jp/pickup/6600845?source=rss",
+   "publishedAt": "2026-10-31T08:56:45.000Z",
+   "id": "cbcf6e453e0b"
+  },
+  {
+   "category": "world",
+   "source": "NHK",
+   "title": "米中間選挙が最終盤、トランプ大統領は遊説中止から一転して開催へ",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68862",
+   "publishedAt": "2026-10-31T08:55:00.000Z",
+   "id": "e51f8069ef9d"
+  },
   {
    "category": "world",
    "source": "NHK",
@@ -12,34 +332,162 @@
   {
    "category": "dom",
    "source": "NHK",
-   "title": "JR宗谷線の特急がヒグマと衝突し脱線、一部区間で終日運転見合わせ",
-   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68820",
-   "publishedAt": "2026-10-31T04:59:00.000Z",
-   "id": "db9c14f97a3e"
-  },
-  {
-   "category": "world",
-   "source": "NHK",
-   "title": "米中間選挙が最終盤、トランプ大統領は遊説中止から一転して開催へ",
-   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68862",
-   "publishedAt": "2026-10-31T08:55:00.000Z",
-   "id": "e51f8069ef9d"
-  },
-  {
-   "category": "dom",
-   "source": "NHK",
    "title": "NTTデータの委託先に不正アクセス、社債購入者の情報が漏えいの可能性",
    "url": "https://news.web.nhk/newsweb/na/nd-20261031de68967",
    "publishedAt": "2026-10-31T08:35:00.000Z",
    "id": "375c942e1d7f"
   },
   {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "森保監督 槙野監督の処分に言及",
+   "url": "https://news.yahoo.co.jp/pickup/6600835?source=rss",
+   "publishedAt": "2026-10-31T08:01:33.000Z",
+   "id": "8b46c1bbc313"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "投げ銭に計4億円 投げる側の心理",
+   "url": "https://news.yahoo.co.jp/pickup/6600831?source=rss",
+   "publishedAt": "2026-10-31T08:00:43.000Z",
+   "id": "47c252993894"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "第2青函トンネル構想浮上 国交省",
+   "url": "https://news.yahoo.co.jp/pickup/6600828?source=rss",
+   "publishedAt": "2026-10-31T07:10:55.000Z",
+   "id": "5b9f75d40136"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "復帰のサンド伊達 後遺症を告白",
+   "url": "https://news.yahoo.co.jp/pickup/6600810?source=rss",
+   "publishedAt": "2026-10-31T05:07:31.000Z",
+   "id": "69c8f2b615e7"
+  },
+  {
    "category": "eco",
-   "source": "株探",
-   "title": "日経平均が大幅反落、米ハイテク株安を受け半導体株に売り",
-   "url": "https://s.kabutan.jp/news/n202610300748/",
-   "publishedAt": "2026-10-30T06:30:00.000Z",
-   "id": "f2c599a1e7cd"
+   "source": "Yahoo!ニュース",
+   "title": "大企業出身のシニア採用 落とし穴",
+   "url": "https://news.yahoo.co.jp/pickup/6600808?source=rss",
+   "publishedAt": "2026-10-31T05:01:10.000Z",
+   "id": "c05dfd64769e"
+  },
+  {
+   "category": "dom",
+   "source": "NHK",
+   "title": "JR宗谷線の特急がヒグマと衝突し脱線、一部区間で終日運転見合わせ",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68820",
+   "publishedAt": "2026-10-31T04:59:00.000Z",
+   "id": "db9c14f97a3e"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "国名勝の池異変 コイ衰弱死相次ぐ",
+   "url": "https://news.yahoo.co.jp/pickup/6600803?source=rss",
+   "publishedAt": "2026-10-31T04:13:36.000Z",
+   "id": "119b40323477"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "重い記憶障害 自らを研究し修士号",
+   "url": "https://news.yahoo.co.jp/pickup/6600782?source=rss",
+   "publishedAt": "2026-10-31T02:04:52.000Z",
+   "id": "5cf80c69609d"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "政府「副首都」推進本部を設置",
+   "url": "https://news.yahoo.co.jp/pickup/6600780?source=rss",
+   "publishedAt": "2026-10-31T01:44:16.000Z",
+   "id": "2836a3042396"
+  },
+  {
+   "category": "eco",
+   "source": "Yahoo!ニュース",
+   "title": "政府 デフレ脱却宣言は慎重に判断",
+   "url": "https://news.yahoo.co.jp/pickup/6600778?source=rss",
+   "publishedAt": "2026-10-31T01:33:15.000Z",
+   "id": "33846e859c9c"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "北が関与か バイナンス巡り米調査",
+   "url": "https://news.yahoo.co.jp/pickup/6600772?source=rss",
+   "publishedAt": "2026-10-31T01:10:17.000Z",
+   "id": "3fe9acf3fd7c"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "AIの「費用対効果が分からない」問題、解決へ？ Claude Enterprise搭載の「3つの新機能」",
+   "url": "https://www.itmedia.co.jp/enterprise/articles/2610/31/news009.html",
+   "publishedAt": "2026-10-31T00:00:00.000Z",
+   "id": "0b30c6250260"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "発達障害増加 支援学校の教員不足",
+   "url": "https://news.yahoo.co.jp/pickup/6600753?source=rss",
+   "publishedAt": "2026-10-30T23:11:13.000Z",
+   "id": "1682a675e8cb"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "e-Taxかたる不審メール 相談急増",
+   "url": "https://news.yahoo.co.jp/pickup/6600745?source=rss",
+   "publishedAt": "2026-10-30T22:39:25.000Z",
+   "id": "4e46fb50ada3"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "GMOがサイバー攻撃情報に異例の1.5億円懸賞金、AI時代の新防衛策となるのか",
+   "url": "https://monoist.itmedia.co.jp/mn/articles/2610/31/news013.html",
+   "publishedAt": "2026-10-30T22:00:00.000Z",
+   "id": "7424741ae0d2"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "AIエージェントは「実運用」が主流に 「明確な成果」を得る企業の共通点は？",
+   "url": "https://www.itmedia.co.jp/enterprise/articles/2610/31/news008.html",
+   "publishedAt": "2026-10-30T22:00:00.000Z",
+   "id": "0c2917b04dbd"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "体中にプラ片詰まった鳥 豪州の島",
+   "url": "https://news.yahoo.co.jp/pickup/6600732?source=rss",
+   "publishedAt": "2026-10-30T13:33:32.000Z",
+   "id": "4ed05a5d69d4"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "キオクシア中間決算「過去最高」連呼 純利益2.2兆円、初の配当実施 AI需要で「成長さらに加速」",
+   "url": "https://www.itmedia.co.jp/business/articles/2610/30/news090.html",
+   "publishedAt": "2026-10-30T12:45:00.000Z",
+   "id": "7aa99958b8ac"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "給食食べ搬送 ヒスタミン中毒とは",
+   "url": "https://news.yahoo.co.jp/pickup/6600714?source=rss",
+   "publishedAt": "2026-10-30T11:07:01.000Z",
+   "id": "7b1b1b9e4591"
   },
   {
    "category": "tech",
@@ -51,11 +499,171 @@
   },
   {
    "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "AI生成曲検知 JASRACが導入検討",
+   "url": "https://news.yahoo.co.jp/pickup/6600711?source=rss",
+   "publishedAt": "2026-10-30T10:41:11.000Z",
+   "id": "3376cce15e95"
+  },
+  {
+   "category": "tech",
    "source": "ElevenLabs",
    "title": "ElevenLabs、効果音生成モデル「SFX v3」を提供開始",
    "url": "https://elevenlabs.io/blog/sound-effects-v3",
    "publishedAt": "2026-10-30T09:00:00.000Z",
    "id": "19616655e2da"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "“でぶねこ”の重み公開 1兆パラメータのAIモデル「Mistral Large 4」（Le Chonk）がダウンロード可能に",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/30/2000002762/",
+   "publishedAt": "2026-10-30T08:46:58.000Z",
+   "id": "aeed731d1456"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "Gemini Notebook、無料で数百冊の教科書にアクセス可能に 米国・インドの出版社提供 日本でも利用可",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/30/2000002760/",
+   "publishedAt": "2026-10-30T08:17:55.000Z",
+   "id": "cc7fd3be5701"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "暗号資産取引大手に不正侵入か",
+   "url": "https://news.yahoo.co.jp/pickup/6600689?source=rss",
+   "publishedAt": "2026-10-30T06:43:51.000Z",
+   "id": "4b139e7e7860"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "Geminiで生成したPDFやスライドを「チャット上で直接編集」可能に 個人プランとGoogle Workspaceで試してみた",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/30/2000002757/",
+   "publishedAt": "2026-10-30T06:31:36.000Z",
+   "id": "7bdba0bbaf85"
+  },
+  {
+   "category": "eco",
+   "source": "株探",
+   "title": "日経平均が大幅反落、米ハイテク株安を受け半導体株に売り",
+   "url": "https://s.kabutan.jp/news/n202610300748/",
+   "publishedAt": "2026-10-30T06:30:00.000Z",
+   "id": "f2c599a1e7cd"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "東京と台北を「17ミリ秒」で結ぶIOWN アンリツCTOが語るデータセンター相互接続と日本の勝機",
+   "url": "https://www.itmedia.co.jp/business/articles/2610/30/news038.html",
+   "publishedAt": "2026-10-30T03:30:00.000Z",
+   "id": "12ef26a6d338"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "Meta Ray-Banで向かいの席から撮影→指の動きからスマホのパスワードを解読する盗み見攻撃",
+   "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002684/",
+   "publishedAt": "2026-10-30T03:00:00.000Z",
+   "id": "f6e76b3f8738"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "なぜ「半導体の供給はデータセンター優先」に見えるのか AIブームの実像、東京エレクトロン デバイス幹部が明かす",
+   "url": "https://www.itmedia.co.jp/business/articles/2610/30/news064.html",
+   "publishedAt": "2026-10-30T03:00:00.000Z",
+   "id": "ba34d02233ca"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "ChatGPT Pro 100／500プランの利用上限を「倍」に Pro 200プランの「半減」は撤回 経緯まとめ",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/30/2000002738/",
+   "publishedAt": "2026-10-30T02:34:51.000Z",
+   "id": "5507bd51b733"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "国産LLM「Sarashina」に初の「思考モデル」 ツール呼び出しやWeb検索性能が向上 APIで提供",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/30/2000002743/",
+   "publishedAt": "2026-10-30T02:11:54.000Z",
+   "id": "a99ed505ef60"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "富士山の初冠雪を確認 気象庁発表",
+   "url": "https://news.yahoo.co.jp/pickup/6600649?source=rss",
+   "publishedAt": "2026-10-30T00:05:52.000Z",
+   "id": "31745b4fe838"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "OpenAI、AIの行動指針「Model Spec」を改定 “記憶”の使い方や人間による監督を明記",
+   "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002735/",
+   "publishedAt": "2026-10-29T23:24:32.000Z",
+   "id": "3b5f974d8de0"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "AIは「組織能力の増幅器」、パナソニック新CAIOが描く人とAIの共進化",
+   "url": "https://monoist.itmedia.co.jp/mn/articles/2610/30/news053.html",
+   "publishedAt": "2026-10-29T23:00:00.000Z",
+   "id": "52e5010e7e9f"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "物理ソルバーからMODSIM、AIへ SIMULIAが描く次世代の設計／シミュレーション",
+   "url": "https://monoist.itmedia.co.jp/mn/articles/2610/30/news004.html",
+   "publishedAt": "2026-10-29T22:00:00.000Z",
+   "id": "f50dc82f68c8"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "見積書100枚超をどうさばく？ 「半日仕事」を約30分にした建設会社のAI活用",
+   "url": "https://kn.itmedia.co.jp/kn/article/2610/30/2000002725/",
+   "publishedAt": "2026-10-29T21:00:00.000Z",
+   "id": "a510e062ec93"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "死んだ園ライオン 熱中症の可能性",
+   "url": "https://news.yahoo.co.jp/pickup/6600588?source=rss",
+   "publishedAt": "2026-10-29T09:50:19.000Z",
+   "id": "35fdc11a7f0e"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "ChatGPTのPro・Businessプランで「API利用」可能に 月最大500ドル分",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002728/",
+   "publishedAt": "2026-10-29T08:46:39.000Z",
+   "id": "e43227d543cd"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "今、最も使われているプログラミング言語は？ AIコーディングでPython超えて急成長",
+   "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002719/",
+   "publishedAt": "2026-10-29T07:16:51.000Z",
+   "id": "2373b0b46c19"
+  },
+  {
+   "category": "tech",
+   "source": "ITmedia AI+",
+   "title": "AIチャットが勧める広告商品、選択率が約3倍に こっそり他商品けなし誘導 米研究者らが検証",
+   "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002680/",
+   "publishedAt": "2026-10-29T03:00:00.000Z",
+   "id": "22a40c94a72b"
   }
  ]
 }
