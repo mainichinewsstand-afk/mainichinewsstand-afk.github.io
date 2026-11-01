@@ -47,6 +47,8 @@ header{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1
 .mast{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px 8px}
 h1{font-family:var(--f-display);font-weight:900;font-size:clamp(1.02rem,4.8vw,1.3rem);margin:0;letter-spacing:.02em;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lv span{white-space:nowrap}
+.nexthint{font-size:.75rem;color:var(--muted)}
+.nexthint b{color:var(--ink);font-weight:700}
 .mini{display:flex;align-items:center;gap:6px;font:500 .75rem var(--f-data);color:var(--muted);white-space:nowrap;background:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 4px;cursor:pointer}
 .mini svg{width:24px;height:24px}
 .rail{display:flex;gap:8px;overflow-x:auto;padding-block:4px 12px;scrollbar-width:none}
@@ -168,6 +170,7 @@ footer{font-size:.75rem;color:var(--muted);padding-block:8px calc(32px + env(saf
       <div class="lv" id="lv"></div>
       <div class="meter xp"><span>けいけん</span><div class="bar"><i id="xpbar"></i></div><span class="num" id="xpnum"></span></div>
       <div class="meter food"><span>おなか</span><div class="bar"><i id="foodbar"></i></div><span class="num" id="foodnum"></span></div>
+      <div class="nexthint" id="nexthint"></div>
     </div>
     <p class="say" id="say" aria-live="polite"></p>
     <div class="mission" id="mission"></div>
@@ -215,8 +218,29 @@ const STAGES=[
   {min:3, key:"baby",  label:"ひよっこ"},
   {min:6, key:"child", label:"こども"},
   {min:10,key:"adult", label:"おとな"},
-  {min:15,key:"sage",  label:"ものしり博士"}
+  {min:15,key:"sage",  label:"ものしり博士"},
+  {min:20,key:"reporter",label:"名記者"},
+  {min:30,key:"editor",label:"編集長"},
+  {min:40,key:"legend",label:"伝説のニュースマスター"}
 ];
+const STAGE_TALK={
+  baby:["ニュースって、なあに？","いろんな言葉をおぼえたいな","まだよくわからないけど、読むのたのしい！"],
+  child:["もっといろんなニュースが読みたい！","きのう読んだニュース、おぼえてるよ","知らない言葉、いっしょに調べよう"],
+  adult:["今日のトップニュース、チェックした？","新聞のかぶと、似あってる？","ニュースの見かた、わかってきたよ"],
+  sage:["ふむふむ、世の中のことがわかってきたぞ","ひとつのニュースも、いろんな見かたがあるんだよ","メガネをかけたら、細かい字もよく読めるよ"],
+  reporter:["取材メモ、ばっちり！","気になるニュースは、深掘りしたいね","PRESSバッジ、ぴかぴかでしょ"],
+  editor:["今日の一面は、どのニュースにしよう","いいニュースを、たくさんの人に届けたいね","赤い蝶ネクタイで、びしっと決めたよ"],
+  legend:["どんなニュースも、まかせて！","ここまでいっしょに読んでくれて、ありがとう","きみと読んだニュースは、ぜんぶ宝物だよ"]
+};
+const EVOLVE={
+  child:"{n}が「こども」になった！うでが生えたよ",
+  adult:"{n}が「おとな」になった！新聞のかぶとをもらったよ",
+  sage:"{n}が「ものしり博士」になった！メガネがよく似あうね",
+  reporter:"{n}が「名記者」になった！PRESSバッジをもらったよ",
+  editor:"{n}が「編集長」になった！赤い蝶ネクタイでびしっと決めたよ",
+  legend:"{n}が「伝説のニュースマスター」になった！新聞の王冠がかがやいてる！"
+};
+const stageIndex=key=>STAGES.findIndex(x=>x.key===key);
 const TITLES={none:"ニュースみならい",dom:"まちの物知り",world:"せかいの旅人",eco:"おかねの番人",tech:"未来のエンジニア",ent:"エンタメ通",sports:"応援団長",sci:"ちいさな研究者"};
 const PALETTE={
   none:{body:"#f3d9a4",line:"#6b4f22",spot:"#e0b860"},
@@ -259,7 +283,9 @@ function petSVG(small){
     if(crack>=2)g+=`<path d="M69 82 l7 -6 l6 6 l8 -5" fill="none" stroke="${L}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/>`;
     if(crack>=3)g+=`<circle cx="62" cy="70" r="2.6" fill="${L}"/><circle cx="76" cy="70" r="2.6" fill="${L}"/>`;
   }else{
-    const s={baby:30,child:36,adult:42,sage:44}[st], rx=s, ry=s*.88, cy=122-ry, ex=s*.36, ey=cy-ry*.1;
+    const s={baby:30,child:36,adult:42,sage:44,reporter:46,editor:47,legend:48}[st], rx=s, ry=s*.88, cy=122-ry, ex=s*.36, ey=cy-ry*.1, si=stageIndex(st);
+    // 伝説: うしろの光
+    if(st==="legend")g+=`<circle cx="70" cy="${cy-4}" r="${s+16}" fill="#ffd84d" opacity=".22"/><circle cx="70" cy="${cy-4}" r="${s+8}" fill="#ffd84d" opacity=".2"/>`;
     // あし
     g+=`<ellipse cx="${70-s*.42}" cy="123" rx="${s*.22}" ry="5" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/><ellipse cx="${70+s*.42}" cy="123" rx="${s*.22}" ry="5" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/>`;
     // うで(こども以上)
@@ -278,22 +304,34 @@ function petSVG(small){
       : m==="normal"?`<path d="M65 ${my+1} q5 3 10 0" fill="none" stroke="${L}" stroke-width="${sw}" stroke-linecap="round"/>`
       :`<ellipse cx="70" cy="${my+1}" rx="2.6" ry="2" fill="${L}"/>`;
     // めがね(博士)
-    if(st==="sage")g+=`<circle cx="${70-ex}" cy="${ey}" r="8" fill="none" stroke="${L}" stroke-width="${sw}"/><circle cx="${70+ex}" cy="${ey}" r="8" fill="none" stroke="${L}" stroke-width="${sw}"/><path d="M${70-ex+8} ${ey} h${ex*2-16}" stroke="${L}" stroke-width="${sw}"/>`;
+    if(si>=4)g+=`<circle cx="${70-ex}" cy="${ey}" r="8" fill="none" stroke="${L}" stroke-width="${sw}"/><circle cx="${70+ex}" cy="${ey}" r="8" fill="none" stroke="${L}" stroke-width="${sw}"/><path d="M${70-ex+8} ${ey} h${ex*2-16}" stroke="${L}" stroke-width="${sw}"/>`;
     // 新聞のかぶと(おとな以上)
     const top=cy-ry;
     let tip=top;
-    if(st==="adult"||st==="sage"){
+    if(si>=3&&st!=="legend"){
       tip=top-26;
       g+=`<path d="M${70-s*.78} ${top+10} L70 ${tip} L${70+s*.78} ${top+10} Z" fill="#f4f1ea" stroke="${L}" stroke-width="${sw}" stroke-linejoin="round"/>`;
       g+=`<path d="M${70-s*.5} ${top+2} h${s*.35} M${70+s*.12} ${top-4} h${s*.3} M${70-s*.28} ${top-10} h${s*.42}" stroke="${L}" stroke-width="1.6" opacity=".45"/>`;
-      g+=`<rect x="${70-s*.84}" y="${top+6}" width="${s*1.68}" height="8" rx="2" fill="#f4f1ea" stroke="${L}" stroke-width="${sw}"/>`;
+      g+=`<rect x="${70-s*.84}" y="${top+6}" width="${s*1.68}" height="8" rx="2" fill="${st==="editor"?"#e04848":"#f4f1ea"}" stroke="${L}" stroke-width="${sw}"/>`;
     }
+    // 伝説: 新聞の王冠
+    if(st==="legend"){
+      tip=top-22;
+      g+=`<path d="M${70-s*.7} ${top+10} L${70-s*.7} ${top-12} L${70-s*.35} ${top-1} L70 ${tip} L${70+s*.35} ${top-1} L${70+s*.7} ${top-12} L${70+s*.7} ${top+10} Z" fill="#ffd84d" stroke="${L}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+      g+=`<path d="M${70-s*.5} ${top+4} h${s*.4} M${70+s*.1} ${top+4} h${s*.38}" stroke="${L}" stroke-width="1.6" opacity=".4"/>`;
+      g+=`<circle cx="70" cy="${top-6}" r="3.4" fill="#e04848" stroke="${L}" stroke-width="1.4"/><circle cx="${70-s*.42}" cy="${top}" r="2.6" fill="#4aa3e8" stroke="${L}" stroke-width="1.2"/><circle cx="${70+s*.42}" cy="${top}" r="2.6" fill="#4aa3e8" stroke="${L}" stroke-width="1.2"/>`;
+      if(!small)g+=`<path d="M18 40 l2.5 6 l6 2.5 l-6 2.5 l-2.5 6 l-2.5 -6 l-6 -2.5 l6 -2.5 z M122 30 l2 4.5 l4.5 2 l-4.5 2 l-2 4.5 l-2 -4.5 l-4.5 -2 l4.5 -2 z M118 96 l1.6 3.6 l3.6 1.6 l-3.6 1.6 l-1.6 3.6 l-1.6 -3.6 l-3.6 -1.6 l3.6 -1.6 z" fill="#f5b800"/>`;
+    }
+    // 編集長以上: 赤い蝶ネクタイ
+    if(si>=6){const ny=ey+23;g+=`<path d="M70 ${ny} l-10 -6 v12 z M70 ${ny} l10 -6 v12 z" fill="#e04848" stroke="${L}" stroke-width="1.6" stroke-linejoin="round"/><circle cx="70" cy="${ny}" r="2.6" fill="#b02a2a"/>`}
     // ジャンルの持ち物
     if(dom==="dom")g+=`<path d="M70 ${tip+2} v-10" stroke="#3f8f3a" stroke-width="${sw}" stroke-linecap="round"/><path d="M70 ${tip-6} q-11 -3 -12 -12 q10 0 12 10 q2 -12 13 -11 q-1 10 -13 13" fill="#7cc46d" stroke="#2f6e2b" stroke-width="1.6"/>`;
     if(dom==="tech")g+=`<path d="M70 ${tip+2} v-13" stroke="${L}" stroke-width="${sw}" stroke-linecap="round"/><circle cx="70" cy="${tip-13}" r="5" fill="#ffe066" stroke="${L}" stroke-width="${sw}"/>`;
     if(dom==="world")g+=`<g transform="translate(${70+rx*.45} ${cy+ry*.35})"><circle r="8" fill="#6cc3f0" stroke="${L}" stroke-width="2"/><path d="M-5 -3 q3 -3 6 0 q2 3 -1 5 q-4 1 -5 -5 M3 3 q2 -1 3 1" fill="#6fbf5a"/><path d="M-8 0 h16 M0 -8 q-5 8 0 16 q5 -8 0 -16" fill="none" stroke="${L}" stroke-width="1" opacity=".5"/></g>`;
     if(dom==="eco")g+=`<g transform="translate(${70+rx*.45} ${cy+ry*.35})"><circle r="8" fill="#ffd34d" stroke="${L}" stroke-width="2"/><text y="3.6" text-anchor="middle" font-size="10" font-weight="700" fill="${L}" font-family="sans-serif">¥</text></g>`;
     const bx=70+rx*.45, by=cy+ry*.35;
+    // 名記者以上: PRESSバッジ
+    if(si>=5)g+=`<g transform="translate(${70-rx*.45} ${by})"><rect x="-12" y="-6.5" width="24" height="13" rx="2" fill="#fff" stroke="${L}" stroke-width="1.6"/><text y="3" text-anchor="middle" font-size="7" font-weight="800" fill="${L}" font-family="sans-serif">PRESS</text></g>`;
     if(dom==="ent")g+=`<path transform="translate(${bx} ${by})" d="M0 -9 L2.6 -3 L9 -2.8 L4 1.4 L5.6 8 L0 4.4 L-5.6 8 L-4 1.4 L-9 -2.8 L-2.6 -3 Z" fill="#ffd84d" stroke="${L}" stroke-width="1.8" stroke-linejoin="round"/>`;
     if(dom==="sports")g+=`<g transform="translate(${bx} ${by})"><circle r="8" fill="#fff" stroke="${L}" stroke-width="2"/><path d="M-4.5 -6.5 q3 6.5 0 13 M4.5 -6.5 q-3 6.5 0 13" fill="none" stroke="#e23b3b" stroke-width="1.6"/></g>`;
     if(dom==="sci")g+=`<g transform="translate(${bx} ${by})"><path d="M-3 -9 h6 M-2 -9 v5 l-6 10 q-1 3 2 3 h12 q3 0 2 -3 l-6 -10 v-5" fill="#e9fbff" stroke="${L}" stroke-width="1.8" stroke-linejoin="round"/><path d="M-6.2 3 h12.4 l1.6 3 q1 2 -1.6 2 h-12.4 q-2.6 0 -1.6 -2 z" fill="#6ee07a"/></g>`;
@@ -320,6 +358,7 @@ function idleLine(){
   if(st==="egg")return pick(["(たまごが、かすかにゆれている…)","(ニュースを読むと、たまごがあたたまるみたい)","(なかから、カリカリと音がする)"]);
   if(m==="sleepy")return pick(["すやすや… ニュースを1本読んで起こしてね","おなかぺこぺこで、ねむくなっちゃった…"]);
   const greet=h<10?"おはよう！":h<17?"こんにちは！":"こんばんは！";
+  if(STAGE_TALK[st]&&Math.random()<.6)return pick(STAGE_TALK[st]);
   return pick([`${greet}今日はなにを読む？`,`${greet}${pet.name}、ニュースが読みたいな`,"今日のミッション、いっしょに達成しよう！"]);
 }
 function say(t){$("say").textContent=t}
@@ -333,7 +372,10 @@ function renderPet(hop){
   $("mini").innerHTML=petSVG(true)+`Lv.${lv}`;
   $("pname").textContent=pet.name;
   $("ptitle").textContent=st.key==="egg"?"":TITLES[dom];
-  {const lvEl=$("lv");lvEl.textContent="";[`Lv.${lv}`,st.label].concat(pet.streak>0?[`${pet.streak}日れんぞく`]:[]).forEach((t,i)=>{if(i)lvEl.append(" ・ ");const sp=document.createElement("span");sp.textContent=t;lvEl.appendChild(sp)})}
+  {const lvEl=$("lv");lvEl.textContent="";[`Lv.${lv}`,st.label].concat(pet.streak>0?[`${pet.streak}日れんぞく`]:[]).forEach((t,i)=>{if(i)lvEl.append(" ");const sp=document.createElement("span");sp.textContent=(i?"・ ":"")+t;lvEl.appendChild(sp)})}
+  {const nx=STAGES[stageIndex(st.key)+1],el=$("nexthint");el.textContent="";
+    if(nx){const b=document.createElement("b");b.textContent=nx.label;el.append("次の姿：",b,`(Lv${nx.min}・あと${nx.min-lv}レベル)`)}
+    else el.textContent="さいごの姿まで育ちました！"}
   $("xpbar").style.width=(into/need*100)+"%";$("xpnum").textContent=`${into} / ${need}`;
   $("foodbar").style.width=f+"%";$("foodnum").textContent=f+"%";
   const ms=$("mission");ms.textContent="";
@@ -365,7 +407,7 @@ function feed(a){
   if(after>before)notes.push(`レベル${after}`);
   if(afterStage.key!==beforeStage){
     line=beforeStage==="egg"?`うまれた！はじめまして、${pet.name}だよ。いっしょにニュースを読もうね！`
-      :`${pet.name}は「${afterStage.label}」になった！`;
+      :(EVOLVE[afterStage.key]||"{n}は「"+afterStage.label+"」になった！").replace("{n}",pet.name);
   }else if(dominant()!==beforeTitle&&dominant()!=="none"&&afterStage.key!=="egg"){
     line=`称号が「${TITLES[dominant()]}」になった！`;
   }
