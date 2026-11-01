@@ -1,6 +1,22 @@
 {
- "updatedAt": "2026-11-01T02:58:18.103Z",
+ "updatedAt": "2026-11-01T04:00:12.755Z",
  "articles": [
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "平山祐介 VIVANT反響「予想外」",
+   "url": "https://news.yahoo.co.jp/pickup/6600927?source=rss",
+   "publishedAt": "2026-11-01T03:48:51.000Z",
+   "id": "58913c22add8"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "「しょまりん」デビュー戦は4位",
+   "url": "https://news.yahoo.co.jp/pickup/6600925?source=rss",
+   "publishedAt": "2026-11-01T03:10:11.000Z",
+   "id": "3ae0b692c791"
+  },
   {
    "category": "sports",
    "source": "Yahoo!ニュース",
@@ -680,14 +696,6 @@
    "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002719/",
    "publishedAt": "2026-10-29T07:16:51.000Z",
    "id": "2373b0b46c19"
-  },
-  {
-   "category": "tech",
-   "source": "ITmedia AI+",
-   "title": "AIチャットが勧める広告商品、選択率が約3倍に こっそり他商品けなし誘導 米研究者らが検証",
-   "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002680/",
-   "publishedAt": "2026-10-29T03:00:00.000Z",
-   "id": "22a40c94a72b"
   }
  ]
 }
