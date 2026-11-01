@@ -1,0 +1,13 @@
+{
+  "name": "mainichi-news-stand",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch.mjs",
+    "icons": "node scripts/icons.mjs"
+  },
+  "dependencies": {
+    "fast-xml-parser": "4.5.0",
+    "@resvg/resvg-js": "2.6.2"
+  }
+}

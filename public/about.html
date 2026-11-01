@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>このアプリについて | まいにちニューススタンド</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<meta name="theme-color" content="#1b2a3d">
+<style>
+:root{--bg:#eef1f4;--surface:#fff;--ink:#16202c;--muted:#5d6b7a;--line:#d5dce4;--accent:#1f5fbf;color-scheme:light;
+  --f-display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;--f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0f151c;--surface:#17202a;--ink:#e6ecf2;--muted:#93a1b0;--line:#2a3644;--accent:#7aa7ec;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.8}
+.wrap{max-width:680px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:calc(16px + env(safe-area-inset-top,0px)) calc(40px + env(safe-area-inset-bottom,0px))}
+a{color:var(--accent)}
+.back{display:inline-block;font-size:.85rem;margin-bottom:12px}
+h1{font-family:var(--f-display);font-size:1.4rem;margin:0 0 4px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 24px}
+section{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+h2{font-family:var(--f-display);font-size:1.05rem;margin:0 0 8px}
+p,ul{margin:0 0 8px}
+ul{padding-left:1.2em}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0}
+dt{color:var(--muted);font-size:.85rem}
+dd{margin:0;overflow-wrap:anywhere}
+.small{font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← ニュースにもどる</a>
+  <h1>このアプリについて</h1>
+  <p class="lede">まいにちニューススタンドは、各ニュース配信元の公開RSSから見出しを集めて表示するニュースアプリです。読んだニュースに合わせて、相棒の「ヨミ」が育ちます。</p>
+
+  <section id="contact">
+    <h2>運営者・お問い合わせ</h2>
+    <dl>
+      <dt>運営者</dt><dd id="owner">まいにちニューススタンド運営</dd>
+      <dt>メール</dt><dd id="email">mainichi.newsstand@gmail.com</dd>
+    </dl>
+    <p class="small">ご意見や不具合のご連絡、掲載内容に関するお問い合わせは、上記メールアドレスまでお送りください。</p>
+  </section>
+
+  <section id="sources">
+    <h2>ニュースの情報源</h2>
+    <p>このアプリは記事本文を掲載していません。表示しているのは見出し・配信元名・配信日時と、元記事へのリンクです。記事の内容は、見出しをタップして各配信元のページでお読みください。</p>
+    <ul>
+      <li>Yahoo!ニュース トピックス(国内・国際・経済・IT・エンタメ・スポーツ・科学)</li>
+      <li>ITmedia AI+</li>
+    </ul>
+    <p class="small">見出しは1時間ごとに自動で更新し、3日より古いものは表示しません。各記事の著作権は、それぞれの配信元に帰属します。</p>
+  </section>
+
+  <section id="privacy">
+    <h2>プライバシーポリシー</h2>
+    <p><strong>個人情報は集めていません。</strong>アカウント登録はなく、名前・メールアドレス・位置情報などを運営者が受け取ることはありません。</p>
+    <ul>
+      <li>ヨミの成長記録、読んだ記事の記録、「あとで読む」、選んだジャンルは、お使いの端末の中(ブラウザの保存領域)だけに保存されます。運営者のサーバーには送られません。アプリのデータを消すと、これらの記録も消えます。</li>
+      <li>アプリはGitHub Pages(GitHub, Inc.)で配信しています。配信の過程で、GitHubがアクセス元のIPアドレスなどを記録することがあります。</li>
+      <li>文字の表示にGoogle Fontsを使っています。フォントを読み込む際、Googleにアクセス情報が送られることがあります。</li>
+      <li>広告や、利用状況を分析するツールは使っていません。</li>
+      <li>見出しをタップすると、各配信元のサイトが開きます。そこから先は、各配信元のプライバシーポリシーに従います。</li>
+    </ul>
+    <p class="small">この方針を変更する場合は、このページでお知らせします。制定日: 2026年11月1日</p>
+  </section>
+</div>
+</body>
+</html>

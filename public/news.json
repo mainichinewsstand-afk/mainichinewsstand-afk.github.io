@@ -1,0 +1,61 @@
+{
+ "updatedAt": "2026-10-31T10:00:00.000Z",
+ "articles": [
+  {
+   "category": "world",
+   "source": "NHK",
+   "title": "スペイン高速列車事故、後続列車に停止措置とらず信号も青",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68821",
+   "publishedAt": "2026-10-31T08:42:00.000Z",
+   "id": "25cdd63e531c"
+  },
+  {
+   "category": "dom",
+   "source": "NHK",
+   "title": "JR宗谷線の特急がヒグマと衝突し脱線、一部区間で終日運転見合わせ",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68820",
+   "publishedAt": "2026-10-31T04:59:00.000Z",
+   "id": "db9c14f97a3e"
+  },
+  {
+   "category": "world",
+   "source": "NHK",
+   "title": "米中間選挙が最終盤、トランプ大統領は遊説中止から一転して開催へ",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68862",
+   "publishedAt": "2026-10-31T08:55:00.000Z",
+   "id": "e51f8069ef9d"
+  },
+  {
+   "category": "dom",
+   "source": "NHK",
+   "title": "NTTデータの委託先に不正アクセス、社債購入者の情報が漏えいの可能性",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261031de68967",
+   "publishedAt": "2026-10-31T08:35:00.000Z",
+   "id": "375c942e1d7f"
+  },
+  {
+   "category": "eco",
+   "source": "株探",
+   "title": "日経平均が大幅反落、米ハイテク株安を受け半導体株に売り",
+   "url": "https://s.kabutan.jp/news/n202610300748/",
+   "publishedAt": "2026-10-30T06:30:00.000Z",
+   "id": "f2c599a1e7cd"
+  },
+  {
+   "category": "tech",
+   "source": "Mistral AI",
+   "title": "Mistral AI、1兆パラメータの「Mistral Large 4」の重みを公開",
+   "url": "https://mistral.ai/news/mistral-large-4-oss/",
+   "publishedAt": "2026-10-30T11:00:00.000Z",
+   "id": "779b541ff77b"
+  },
+  {
+   "category": "tech",
+   "source": "ElevenLabs",
+   "title": "ElevenLabs、効果音生成モデル「SFX v3」を提供開始",
+   "url": "https://elevenlabs.io/blog/sound-effects-v3",
+   "publishedAt": "2026-10-30T09:00:00.000Z",
+   "id": "19616655e2da"
+  }
+ ]
+}

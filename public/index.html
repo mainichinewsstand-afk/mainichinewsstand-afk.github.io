@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>まいにちニューススタンド</title>
+<meta name="description" content="ニュースを読むと相棒のヨミが育つ、国内・国際・経済・AIのニュースサイト">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17202a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=BIZ+UDPGothic:wght@400;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: sticky masthead + rail; companion card (character + meters + daily mission) above a single column of headline rows */
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#16202c; --muted:#5d6b7a; --line:#d5dce4; --accent:#1f5fbf;
+  --track:#e3e8ee; --xp:#1f5fbf; --food:#e8803a; --bubble:#f5f7fa; --good:#16a34a;
+  --c-dom:#c2410c; --c-world:#0f766e; --c-eco:#a16207; --c-tech:#6d28d9; --c-ent:#be185d; --c-sports:#1d4ed8; --c-sci:#15803d;
+  --f-display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-data:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0f151c; --surface:#17202a; --ink:#e6ecf2; --muted:#93a1b0; --line:#2a3644; --accent:#7aa7ec;
+  --track:#243040; --xp:#7aa7ec; --food:#f59e5b; --bubble:#1f2a36; --good:#4ade80;
+  --c-dom:#fb923c; --c-world:#2dd4bf; --c-eco:#facc15; --c-tech:#a78bfa; --c-ent:#f472b6; --c-sports:#60a5fa; --c-sci:#4ade80; color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.mast{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px 8px}
+h1{font-family:var(--f-display);font-weight:900;font-size:clamp(1.02rem,4.8vw,1.3rem);margin:0;letter-spacing:.02em;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lv span{white-space:nowrap}
+.mini{display:flex;align-items:center;gap:6px;font:500 .75rem var(--f-data);color:var(--muted);white-space:nowrap;background:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 4px;cursor:pointer}
+.mini svg{width:24px;height:24px}
+.rail{display:flex;gap:8px;overflow-x:auto;padding-block:4px 12px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.chip{flex:none;font:700 .85rem var(--f-display);padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tools{display:flex;padding-block:0 12px}
+.search{flex:1;min-width:0;font:inherit;font-size:16px;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+
+/* companion */
+.pet{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;grid-template-columns:132px 1fr;gap:12px 16px;align-items:center;scroll-margin-top:140px}
+.stage{position:relative;width:132px;height:132px;display:grid;place-items:center}
+.stage svg{width:132px;height:132px;overflow:visible}
+.bob{transform-origin:70px 125px}
+@media (prefers-reduced-motion:no-preference){
+  .bob{animation:bob 2.8s ease-in-out infinite}
+  @keyframes bob{50%{transform:translateY(-3px) scaleY(1.02)}}
+  .hop .bob{animation:hop .55s ease-out 1}
+  @keyframes hop{30%{transform:translateY(-16px) scaleY(1.05)}60%{transform:translateY(0) scaleY(.92)}}
+  .egg-wobble .bob{animation:wob 1.6s ease-in-out infinite}
+  @keyframes wob{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+}
+.info{min-width:0;display:flex;flex-direction:column;gap:6px}
+.nameRow{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pname{font:900 1.25rem var(--f-display);margin:0}
+.ptitle{font:700 .75rem var(--f-display);color:var(--muted);letter-spacing:.04em}
+.lv{font:500 .8rem var(--f-data);color:var(--muted)}
+.meter{display:grid;grid-template-columns:auto 1fr auto;white-space:nowrap;gap:8px;align-items:center;font-size:.75rem;color:var(--muted)}
+.bar{height:8px;border-radius:99px;background:var(--track);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--fill);transition:width .5s ease}
+.meter .num{font-family:var(--f-data);font-variant-numeric:tabular-nums;min-width:4.6em;text-align:right}
+.say{grid-column:1/-1;position:relative;background:var(--bubble);border-radius:12px;padding:10px 14px;font-size:.92rem;min-height:2.6em}
+.say::before{content:"";position:absolute;top:-7px;left:56px;border:7px solid transparent;border-top:0;border-bottom-color:var(--bubble)}
+.mission{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:.78rem;color:var(--muted)}
+.mission b{font-family:var(--f-display);color:var(--ink);margin-right:2px}
+.mc{display:inline-flex;align-items:center;gap:4px}
+.mc::before{content:"";width:10px;height:10px;border-radius:50%;border:2px solid var(--cc)}
+.mc.done{color:var(--ink)}
+.mc.done::before{background:var(--cc)}
+.links{grid-column:1/-1;display:flex;gap:14px;flex-wrap:wrap;font-size:.75rem}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.rename{display:flex;gap:6px;grid-column:1/-1}
+.rename input{flex:1;min-width:0;font:inherit;font-size:16px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.rename button{font:700 .85rem var(--f-display);border-radius:8px;border:0;padding:6px 14px;background:var(--ink);color:var(--surface);cursor:pointer}
+.stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{border-top:3px solid var(--cc);padding-top:4px;font-size:.72rem;color:var(--muted)}
+.stat b{display:block;font:500 1rem var(--f-data);color:var(--ink);font-variant-numeric:tabular-nums}
+
+.status{font-size:.8rem;color:var(--muted);padding-block:14px 4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.dot.ok{background:var(--good)}
+main{padding-block:0 24px}
+.list{display:flex;flex-direction:column}
+.story{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding-block:14px;border-bottom:1px solid var(--line)}
+.story > div{min-width:0}
+.meta{display:flex;gap:8px;align-items:center;font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+.cat{font:700 .7rem var(--f-display);letter-spacing:.06em;color:var(--cc)}
+.cat::before{content:"";display:inline-block;width:6px;height:6px;border-radius:2px;background:var(--cc);margin-right:5px;vertical-align:1px}
+.time{font-family:var(--f-data)}
+.readmark{font:700 .68rem var(--f-display);color:var(--good)}
+.story h2{font-family:var(--f-display);font-weight:700;font-size:1.02rem;line-height:1.55;margin:4px 0 0;text-wrap:pretty;overflow-wrap:anywhere}
+.story h2 a{color:inherit;text-decoration:none}
+.story h2 a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.story.read h2{color:var(--muted)}
+.story.lead{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin-block:12px 8px}
+.story.lead h2{font-size:1.3rem;font-weight:900}
+.save{align-self:start;background:none;border:0;padding:4px;cursor:pointer;color:var(--muted);font-size:1.1rem;line-height:1}
+.save[aria-pressed="true"]{color:var(--accent)}
+.empty{padding:48px 8px;text-align:center;color:var(--muted)}
+.empty strong{display:block;font-family:var(--f-display);color:var(--ink);font-size:1.05rem;margin-bottom:6px}
+footer{font-size:.75rem;color:var(--muted);padding-block:8px calc(32px + env(safe-area-inset-bottom,0px))}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--surface);font:700 .9rem var(--f-display);padding:10px 18px;border-radius:999px;transition:opacity .25s,transform .25s;z-index:20;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.d-dom{--cc:var(--c-dom)}.d-world{--cc:var(--c-world)}.d-eco{--cc:var(--c-eco)}.d-tech{--cc:var(--c-tech)}.d-ent{--cc:var(--c-ent)}.d-sports{--cc:var(--c-sports)}.d-sci{--cc:var(--c-sci)}
+/* genre picker */
+.chip.add{border-style:dashed;color:var(--muted)}
+.picker{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:140px}
+.picker h2{font:900 1.05rem var(--f-display);margin:0}
+.picker p{margin:0;font-size:.85rem;color:var(--muted)}
+.gopts{display:flex;flex-wrap:wrap;gap:8px}
+.gopt{display:inline-flex;align-items:center;gap:6px;font:700 .9rem var(--f-display);padding:8px 14px 8px 10px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.gopt::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--cc);box-sizing:border-box}
+.gopt[aria-pressed="true"]{border-color:var(--cc);color:var(--ink)}
+.gopt[aria-pressed="true"]::before{background:var(--cc);box-shadow:inset 0 0 0 3px var(--surface)}
+.pactions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pactions button{font:700 .9rem var(--f-display);border-radius:10px;border:0;padding:9px 20px;background:var(--ink);color:var(--surface);cursor:pointer}
+.pactions button:disabled{opacity:.4;cursor:not-allowed}
+.pactions span{font-size:.8rem;color:var(--muted)}
+.xp{--fill:var(--xp)}.food{--fill:var(--food)}
+@media (max-width:420px){.pet{grid-template-columns:104px 1fr;padding:14px}.stage,.stage svg{width:104px;height:104px}.say::before{left:44px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mast"><h1>まいにちニューススタンド</h1><button class="mini" id="mini" type="button" aria-label="ヨミのようすを見る"></button></div>
+    <nav class="rail" id="rail" aria-label="カテゴリ"></nav>
+    <div class="tools"><input id="q" class="search" type="search" placeholder="キーワードで絞り込む" aria-label="キーワード検索"></div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="picker" id="picker" aria-labelledby="pickerTitle" hidden>
+    <h2 id="pickerTitle">見たいジャンルを選んでね</h2>
+    <p id="pickerNote">選んだジャンルのニュースだけが一覧に出ます。あとからいつでも変えられます。</p>
+    <div class="gopts" id="gopts"></div>
+    <div class="pactions"><button id="pickerSave" type="button">決定</button><span id="pickerHint"></span></div>
+  </section>
+  <section class="pet" id="pet" aria-label="あいぼう">
+    <div class="stage" id="stage"></div>
+    <div class="info">
+      <div class="nameRow"><h2 class="pname" id="pname"></h2><span class="ptitle" id="ptitle"></span></div>
+      <div class="lv" id="lv"></div>
+      <div class="meter xp"><span>けいけん</span><div class="bar"><i id="xpbar"></i></div><span class="num" id="xpnum"></span></div>
+      <div class="meter food"><span>おなか</span><div class="bar"><i id="foodbar"></i></div><span class="num" id="foodnum"></span></div>
+    </div>
+    <p class="say" id="say" aria-live="polite"></p>
+    <div class="mission" id="mission"></div>
+    <div class="stats" id="stats" hidden></div>
+    <div class="rename" id="renameBox" hidden><input id="renameInput" maxlength="10" aria-label="新しい名前"><button id="renameSave" type="button">決定</button></div>
+    <div class="links"><button class="linkbtn" id="toggleStats" type="button">読んだ記録を見る</button><button class="linkbtn" id="renameBtn" type="button">名前を変える</button></div>
+  </section>
+  <div class="status"><span class="dot" id="dot"></span><span id="statusText">ニュースを読み込んでいます…</span></div>
+  <div class="list" id="list"></div>
+  <div class="empty" id="empty" hidden></div>
+</main>
+<footer class="wrap">見出しは各配信元の公開RSSから自動で集めています。記事の内容は、見出しをタップして配信元のページでお読みください。ヨミの成長記録は、この端末の中だけに保存されます。<br><a href="about.html" style="color:var(--accent)">運営者・お問い合わせ・プライバシーポリシー</a></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ---------- 保存 ---------- */
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const $=id=>document.getElementById(id);
+const GENRES=["dom","world","eco","tech","ent","sports","sci"];
+const CAT_LABEL={dom:"国内",world:"国際",eco:"経済",tech:"AI・テック",ent:"エンタメ",sports:"スポーツ",sci:"科学"};
+const DEFAULT_GENRES=["dom","world","eco","tech"];
+const savedGenres=store.get("ns.genres",null);
+let chosen=Array.isArray(savedGenres)?savedGenres.filter(g=>GENRES.includes(g)):DEFAULT_GENRES.slice();
+if(!chosen.length)chosen=DEFAULT_GENRES.slice();
+const MISSION_MAX=4;
+const missionTarget=()=>Math.min(MISSION_MAX,chosen.length);
+const missionDone=()=>pet.today.cats.filter(g=>chosen.includes(g)).length>=missionTarget();
+
+/* ---------- 育成ルール ---------- */
+const XP_READ=10, XP_NEW_GENRE=5, XP_MISSION=30, FOOD_READ=15, FOOD_DECAY_PER_HOUR=3;
+const STAGES=[
+  {min:1, key:"egg",   label:"たまご"},
+  {min:3, key:"baby",  label:"ひよっこ"},
+  {min:6, key:"child", label:"こども"},
+  {min:10,key:"adult", label:"おとな"},
+  {min:15,key:"sage",  label:"ものしり博士"}
+];
+const TITLES={none:"ニュースみならい",dom:"まちの物知り",world:"せかいの旅人",eco:"おかねの番人",tech:"未来のエンジニア",ent:"エンタメ通",sports:"応援団長",sci:"ちいさな研究者"};
+const PALETTE={
+  none:{body:"#f3d9a4",line:"#6b4f22",spot:"#e0b860"},
+  dom:{body:"#ffbf96",line:"#7c3410",spot:"#f28c4f"},
+  world:{body:"#95e3d6",line:"#11564e",spot:"#3fbfa9"},
+  eco:{body:"#ffe08c",line:"#6e5200",spot:"#e7b52a"},
+  tech:{body:"#cdbcff",line:"#43258f",spot:"#9b7cf2"},
+  ent:{body:"#ffc2dc",line:"#86184b",spot:"#f06aa6"},
+  sports:{body:"#aed3ff",line:"#1c4483",spot:"#5b9cf0"},
+  sci:{body:"#bdeeae",line:"#245d17",spot:"#6cc552"}
+};
+function levelInfo(xp){let lv=1,acc=0,need=40;while(xp>=acc+need){acc+=need;lv++;need=40+(lv-1)*20}return{lv,into:xp-acc,need}}
+function stageOf(lv){let s=STAGES[0];for(const x of STAGES)if(lv>=x.min)s=x;return s}
+const dayKey=(t=new Date())=>`${t.getFullYear()}-${t.getMonth()+1}-${t.getDate()}`;
+const yesterdayKey=()=>{const t=new Date();t.setDate(t.getDate()-1);return dayKey(t)};
+
+const DEFAULT_PET={name:"ヨミ",xp:0,counts:{},read:{},food:60,foodAt:Date.now(),streak:0,lastDay:"",today:{day:"",cats:[],bonus:false},born:Date.now()};
+let pet=Object.assign({},DEFAULT_PET,store.get("ns.pet",{}));
+pet.counts=Object.assign(Object.fromEntries(GENRES.map(g=>[g,0])),pet.counts);
+// 7日より前の既読記録は片付ける
+for(const [id,t] of Object.entries(pet.read))if(Date.now()-t>7*864e5)delete pet.read[id];
+if(pet.today.day!==dayKey())pet.today={day:dayKey(),cats:[],bonus:false};
+const savePet=()=>store.set("ns.pet",pet);
+
+function foodNow(){return Math.max(0,Math.min(100,pet.food-(Date.now()-pet.foodAt)/36e5*FOOD_DECAY_PER_HOUR))}
+function dominant(){const tot=GENRES.reduce((s,g)=>s+pet.counts[g],0);if(tot<3)return"none";
+  return GENRES.reduce((a,b)=>pet.counts[b]>pet.counts[a]?b:a)}
+function mood(){const f=foodNow();return f<20?"sleepy":f<55?"normal":"happy"}
+
+/* ---------- キャラクターの絵 ---------- */
+function petSVG(small){
+  const {lv,into,need}=levelInfo(pet.xp), st=stageOf(lv).key, dom=dominant(), c=PALETTE[dom], m=mood();
+  const L=c.line, sw=small?3.4:2.6;
+  let g="";
+  if(st==="egg"){
+    const crack=Math.min(3,Math.floor((pet.xp/(40+60))*4));
+    g+=`<ellipse cx="70" cy="80" rx="38" ry="46" fill="#fff4dc" stroke="${L}" stroke-width="${sw}"/>`;
+    g+=`<circle cx="55" cy="66" r="7" fill="${c.spot}" opacity=".75"/><circle cx="84" cy="94" r="9" fill="${c.spot}" opacity=".75"/><circle cx="82" cy="58" r="4" fill="${c.spot}" opacity=".75"/>`;
+    if(crack>=1)g+=`<path d="M48 76 l8 6 l6 -7 l7 7" fill="none" stroke="${L}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    if(crack>=2)g+=`<path d="M69 82 l7 -6 l6 6 l8 -5" fill="none" stroke="${L}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    if(crack>=3)g+=`<circle cx="62" cy="70" r="2.6" fill="${L}"/><circle cx="76" cy="70" r="2.6" fill="${L}"/>`;
+  }else{
+    const s={baby:30,child:36,adult:42,sage:44}[st], rx=s, ry=s*.88, cy=122-ry, ex=s*.36, ey=cy-ry*.1;
+    // あし
+    g+=`<ellipse cx="${70-s*.42}" cy="123" rx="${s*.22}" ry="5" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/><ellipse cx="${70+s*.42}" cy="123" rx="${s*.22}" ry="5" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/>`;
+    // うで(こども以上)
+    if(st!=="baby")g+=`<ellipse cx="${70-rx+2}" cy="${cy+ry*.25}" rx="7" ry="11" transform="rotate(25 ${70-rx+2} ${cy+ry*.25})" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/><ellipse cx="${70+rx-2}" cy="${cy+ry*.25}" rx="7" ry="11" transform="rotate(-25 ${70+rx-2} ${cy+ry*.25})" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/>`;
+    // からだ
+    g+=`<ellipse cx="70" cy="${cy}" rx="${rx}" ry="${ry}" fill="${c.body}" stroke="${L}" stroke-width="${sw}"/>`;
+    g+=`<ellipse cx="70" cy="${cy+ry*.42}" rx="${rx*.55}" ry="${ry*.36}" fill="#fff" opacity=".35"/>`;
+    // ほっぺ
+    g+=`<ellipse cx="${70-ex-6}" cy="${ey+9}" rx="5" ry="3.2" fill="#ff8fa3" opacity=".55"/><ellipse cx="${70+ex+6}" cy="${ey+9}" rx="5" ry="3.2" fill="#ff8fa3" opacity=".55"/>`;
+    // め
+    if(m==="sleepy"){g+=`<path d="M${70-ex-5} ${ey} q5 4 10 0 M${70+ex-5} ${ey} q5 4 10 0" fill="none" stroke="${L}" stroke-width="${sw}" stroke-linecap="round"/>`}
+    else{const r=st==="baby"?4.6:4.2;g+=`<circle cx="${70-ex}" cy="${ey}" r="${r}" fill="${L}"/><circle cx="${70+ex}" cy="${ey}" r="${r}" fill="${L}"/><circle cx="${70-ex+1.4}" cy="${ey-1.6}" r="1.4" fill="#fff"/><circle cx="${70+ex+1.4}" cy="${ey-1.6}" r="1.4" fill="#fff"/>`}
+    // くち
+    const my=ey+10;
+    g+= m==="happy"?`<path d="M64 ${my} q6 7 12 0" fill="#ff8fa3" stroke="${L}" stroke-width="${sw}" stroke-linejoin="round"/>`
+      : m==="normal"?`<path d="M65 ${my+1} q5 3 10 0" fill="none" stroke="${L}" stroke-width="${sw}" stroke-linecap="round"/>`
+      :`<ellipse cx="70" cy="${my+1}" rx="2.6" ry="2" fill="${L}"/>`;
+    // めがね(博士)
+    if(st==="sage")g+=`<circle cx="${70-ex}" cy="${ey}" r="8" fill="none" stroke="${L}" stroke-width="${sw}"/><circle cx="${70+ex}" cy="${ey}" r="8" fill="none" stroke="${L}" stroke-width="${sw}"/><path d="M${70-ex+8} ${ey} h${ex*2-16}" stroke="${L}" stroke-width="${sw}"/>`;
+    // 新聞のかぶと(おとな以上)
+    const top=cy-ry;
+    let tip=top;
+    if(st==="adult"||st==="sage"){
+      tip=top-26;
+      g+=`<path d="M${70-s*.78} ${top+10} L70 ${tip} L${70+s*.78} ${top+10} Z" fill="#f4f1ea" stroke="${L}" stroke-width="${sw}" stroke-linejoin="round"/>`;
+      g+=`<path d="M${70-s*.5} ${top+2} h${s*.35} M${70+s*.12} ${top-4} h${s*.3} M${70-s*.28} ${top-10} h${s*.42}" stroke="${L}" stroke-width="1.6" opacity=".45"/>`;
+      g+=`<rect x="${70-s*.84}" y="${top+6}" width="${s*1.68}" height="8" rx="2" fill="#f4f1ea" stroke="${L}" stroke-width="${sw}"/>`;
+    }
+    // ジャンルの持ち物
+    if(dom==="dom")g+=`<path d="M70 ${tip+2} v-10" stroke="#3f8f3a" stroke-width="${sw}" stroke-linecap="round"/><path d="M70 ${tip-6} q-11 -3 -12 -12 q10 0 12 10 q2 -12 13 -11 q-1 10 -13 13" fill="#7cc46d" stroke="#2f6e2b" stroke-width="1.6"/>`;
+    if(dom==="tech")g+=`<path d="M70 ${tip+2} v-13" stroke="${L}" stroke-width="${sw}" stroke-linecap="round"/><circle cx="70" cy="${tip-13}" r="5" fill="#ffe066" stroke="${L}" stroke-width="${sw}"/>`;
+    if(dom==="world")g+=`<g transform="translate(${70+rx*.45} ${cy+ry*.35})"><circle r="8" fill="#6cc3f0" stroke="${L}" stroke-width="2"/><path d="M-5 -3 q3 -3 6 0 q2 3 -1 5 q-4 1 -5 -5 M3 3 q2 -1 3 1" fill="#6fbf5a"/><path d="M-8 0 h16 M0 -8 q-5 8 0 16 q5 -8 0 -16" fill="none" stroke="${L}" stroke-width="1" opacity=".5"/></g>`;
+    if(dom==="eco")g+=`<g transform="translate(${70+rx*.45} ${cy+ry*.35})"><circle r="8" fill="#ffd34d" stroke="${L}" stroke-width="2"/><text y="3.6" text-anchor="middle" font-size="10" font-weight="700" fill="${L}" font-family="sans-serif">¥</text></g>`;
+    const bx=70+rx*.45, by=cy+ry*.35;
+    if(dom==="ent")g+=`<path transform="translate(${bx} ${by})" d="M0 -9 L2.6 -3 L9 -2.8 L4 1.4 L5.6 8 L0 4.4 L-5.6 8 L-4 1.4 L-9 -2.8 L-2.6 -3 Z" fill="#ffd84d" stroke="${L}" stroke-width="1.8" stroke-linejoin="round"/>`;
+    if(dom==="sports")g+=`<g transform="translate(${bx} ${by})"><circle r="8" fill="#fff" stroke="${L}" stroke-width="2"/><path d="M-4.5 -6.5 q3 6.5 0 13 M4.5 -6.5 q-3 6.5 0 13" fill="none" stroke="#e23b3b" stroke-width="1.6"/></g>`;
+    if(dom==="sci")g+=`<g transform="translate(${bx} ${by})"><path d="M-3 -9 h6 M-2 -9 v5 l-6 10 q-1 3 2 3 h12 q3 0 2 -3 l-6 -10 v-5" fill="#e9fbff" stroke="${L}" stroke-width="1.8" stroke-linejoin="round"/><path d="M-6.2 3 h12.4 l1.6 3 q1 2 -1.6 2 h-12.4 q-2.6 0 -1.6 -2 z" fill="#6ee07a"/></g>`;
+    if(m==="sleepy"&&!small)g+=`<text x="${70+rx+2}" y="${top+4}" font-size="14" font-weight="700" fill="${L}" font-family="sans-serif" opacity=".7">z</text><text x="${70+rx+12}" y="${top-8}" font-size="11" font-weight="700" fill="${L}" font-family="sans-serif" opacity=".5">z</text>`;
+  }
+  const shadow=`<ellipse cx="70" cy="127" rx="${st==="egg"?30:34}" ry="4" fill="#000" opacity=".1"/>`;
+  return `<svg viewBox="${small?"10 20 120 110":"0 0 140 140"}" role="img" aria-label="${pet.name}(${stageOf(lv).label})">${shadow}<g class="bob">${g}</g></svg>`;
+}
+
+/* ---------- セリフ ---------- */
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const short=t=>t.length>20?t.slice(0,20)+"…":t;
+const LINES={
+  dom:["『{t}』、身近なおはなしだね","国内のニュース、ちゃんと見てるのえらい！","『{t}』かあ。まわりの人にも話してみよう"],
+  world:["『{t}』、遠くの国のできごとだね","世界はひろいなあ…","『{t}』、地図で場所をさがしてみたい！"],
+  eco:["『{t}』…おかねの流れ、ちょっとわかってきた","経済のニュースはむずかしいけど、おもしろいね","『{t}』、くらしにもつながってるのかな"],
+  tech:["『{t}』、未来がたのしみ！","AIってどこまで行くんだろう","『{t}』、すごい時代だね"],
+  ent:["『{t}』、わくわくするね！","エンタメのニュース、ついつい見ちゃう","『{t}』、だれかと話したくなるね"],
+  sports:["『{t}』、熱いね！","がんばってる人のニュースは元気が出るね","『{t}』、ぼくも体を動かしたくなった！"],
+  sci:["『{t}』…ふしぎだなあ","科学のニュースって、なぞときみたい","『{t}』、もっとくわしく知りたい！"]
+};
+function idleLine(){
+  const st=stageOf(levelInfo(pet.xp).lv).key, m=mood(), h=new Date().getHours();
+  if(st==="egg")return pick(["(たまごが、かすかにゆれている…)","(ニュースを読むと、たまごがあたたまるみたい)","(なかから、カリカリと音がする)"]);
+  if(m==="sleepy")return pick(["すやすや… ニュースを1本読んで起こしてね","おなかぺこぺこで、ねむくなっちゃった…"]);
+  const greet=h<10?"おはよう！":h<17?"こんにちは！":"こんばんは！";
+  return pick([`${greet}今日はなにを読む？`,`${greet}${pet.name}、ニュースが読みたいな`,"今日のミッション、いっしょに達成しよう！"]);
+}
+function say(t){$("say").textContent=t}
+
+/* ---------- 画面 ---------- */
+function renderPet(hop){
+  const {lv,into,need}=levelInfo(pet.xp), st=stageOf(lv), dom=dominant(), f=Math.round(foodNow());
+  const stage=$("stage");stage.innerHTML=petSVG(false);
+  stage.classList.toggle("egg-wobble",st.key==="egg");
+  if(hop){stage.classList.remove("hop");void stage.offsetWidth;stage.classList.add("hop")}
+  $("mini").innerHTML=petSVG(true)+`Lv.${lv}`;
+  $("pname").textContent=pet.name;
+  $("ptitle").textContent=st.key==="egg"?"":TITLES[dom];
+  {const lvEl=$("lv");lvEl.textContent="";[`Lv.${lv}`,st.label].concat(pet.streak>0?[`${pet.streak}日れんぞく`]:[]).forEach((t,i)=>{if(i)lvEl.append(" ・ ");const sp=document.createElement("span");sp.textContent=t;lvEl.appendChild(sp)})}
+  $("xpbar").style.width=(into/need*100)+"%";$("xpnum").textContent=`${into} / ${need}`;
+  $("foodbar").style.width=f+"%";$("foodnum").textContent=f+"%";
+  const ms=$("mission");ms.textContent="";
+  const b=document.createElement("b");b.textContent=pet.today.bonus?"今日のミッション達成！":"今日のミッション";const t=missionTarget();ms.append(b,(chosen.length>t?`選んだジャンルから${t}つ読もう`:`${t}ジャンルを1本ずつ読もう`)+"(+"+XP_MISSION+")");
+  chosen.forEach(g=>{const s=document.createElement("span");s.className="mc d-"+g+(pet.today.cats.includes(g)?" done":"");s.textContent=CAT_LABEL[g];ms.appendChild(s)});
+  const stats=$("stats");stats.textContent="";
+  GENRES.filter(g=>chosen.includes(g)||pet.counts[g]>0).forEach(g=>{const d=document.createElement("div");d.className="stat d-"+g;const n=document.createElement("b");n.textContent=pet.counts[g]+"本";d.append(n,CAT_LABEL[g]);stats.appendChild(d)});
+}
+let toastTimer;
+function toast(t){const el=$("toast");el.textContent=t;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2200)}
+
+function feed(a){
+  if(pet.read[a.id]){say(pick(["もう一回読むの？しっかり者だね","おさらい、だいじ！"]));renderPet(true);return}
+  const before=levelInfo(pet.xp).lv, beforeStage=stageOf(before).key, beforeTitle=dominant();
+  const today=dayKey();
+  if(pet.today.day!==today)pet.today={day:today,cats:[],bonus:false};
+  if(pet.lastDay!==today){pet.streak=pet.lastDay===yesterdayKey()?pet.streak+1:1;pet.lastDay=today}
+  let gain=XP_READ, notes=[];
+  if(GENRES.includes(a.category)){
+    pet.counts[a.category]++;
+    if(!pet.today.cats.includes(a.category)){pet.today.cats.push(a.category);gain+=XP_NEW_GENRE}
+    if(!pet.today.bonus&&missionDone()){pet.today.bonus=true;gain+=XP_MISSION;notes.push("ミッション達成")}
+  }
+  pet.xp+=gain;pet.read[a.id]=Date.now();
+  pet.food=Math.min(100,foodNow()+FOOD_READ);pet.foodAt=Date.now();
+  savePet();
+  const after=levelInfo(pet.xp).lv, afterStage=stageOf(after);
+  let line=pick(LINES[a.category]||["読んでくれてありがとう！"]).replace("{t}",short(a.title));
+  if(after>before)notes.push(`レベル${after}`);
+  if(afterStage.key!==beforeStage){
+    line=beforeStage==="egg"?`うまれた！はじめまして、${pet.name}だよ。いっしょにニュースを読もうね！`
+      :`${pet.name}は「${afterStage.label}」になった！`;
+  }else if(dominant()!==beforeTitle&&dominant()!=="none"&&afterStage.key!=="egg"){
+    line=`称号が「${TITLES[dominant()]}」になった！`;
+  }
+  say(line);
+  toast(`+${gain} けいけん`+(notes.length?" ・ "+notes.join(" ・ "):""));
+  renderPet(true);render();
+}
+
+$("mini").onclick=()=>$("pet").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+$("toggleStats").onclick=()=>{const s=$("stats");s.hidden=!s.hidden;$("toggleStats").textContent=s.hidden?"読んだ記録を見る":"記録をとじる"};
+$("renameBtn").onclick=()=>{const b=$("renameBox");b.hidden=!b.hidden;if(!b.hidden){$("renameInput").value=pet.name;$("renameInput").focus()}};
+function doRename(){const v=$("renameInput").value.trim();if(v){pet.name=v.slice(0,10);savePet();say(`${pet.name}…すてきな名前！ありがとう`);renderPet(true)}$("renameBox").hidden=true}
+$("renameSave").onclick=doRename;
+$("renameInput").addEventListener("keydown",e=>{if(e.key==="Enter")doRename()});
+
+/* ---------- ニュース一覧 ---------- */
+const state={cat:store.get("ns.cat","all"),q:"",saved:new Set(store.get("ns.saved",[])),articles:[],loaded:false};
+function rel(iso){const t=new Date(iso);if(isNaN(t))return"";const m=Math.round((Date.now()-t)/6e4);
+  if(m<1)return"たった今";if(m<60)return m+"分前";const h=Math.round(m/60);if(h<24)return h+"時間前";
+  const d=Math.round(h/24);return d<7?d+"日前":`${t.getMonth()+1}/${t.getDate()}`}
+function renderRail(){const r=$("rail");r.textContent="";
+  if(state.cat!=="all"&&state.cat!=="saved"&&!chosen.includes(state.cat))state.cat="all";
+  const CATS=[{id:"all",label:"すべて"},{id:"saved",label:"あとで読む"}].concat(chosen.map(g=>({id:g,label:CAT_LABEL[g]})));
+  CATS.forEach(c=>{const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=c.label;
+    b.setAttribute("aria-pressed",String(state.cat===c.id));b.onclick=()=>{state.cat=c.id;store.set("ns.cat",c.id);renderRail();render()};r.appendChild(b)});
+  const add=document.createElement("button");add.className="chip add";add.type="button";add.textContent="ジャンルを選ぶ";add.onclick=()=>openPicker(false);r.appendChild(add)}
+function render(){
+  const q=state.q.trim().toLowerCase();
+  const items=state.articles.filter(a=>{
+    if(state.cat==="saved")return state.saved.has(a.id)&&(!q||a.title.toLowerCase().includes(q));
+    if(!chosen.includes(a.category))return false;
+    if(state.cat!=="all"&&a.category!==state.cat)return false;
+    return !q||(a.title+a.source).toLowerCase().includes(q)});
+  const list=$("list");list.textContent="";
+  items.forEach((a,i)=>{
+    const isRead=!!pet.read[a.id];
+    const el=document.createElement("article");
+    el.className="story d-"+a.category+(i===0&&state.cat!=="saved"&&!q?" lead":"")+(isRead?" read":"");
+    const body=document.createElement("div"),meta=document.createElement("div");meta.className="meta";
+    const cat=document.createElement("span");cat.className="cat";cat.textContent=CAT_LABEL[a.category]||"ニュース";
+    const src=document.createElement("span");src.textContent=a.source;
+    const tm=document.createElement("span");tm.className="time";tm.textContent=rel(a.publishedAt);
+    meta.append(cat,src,tm);
+    if(isRead){const r=document.createElement("span");r.className="readmark";r.textContent="✓ 読んだ";meta.appendChild(r)}
+    const h=document.createElement("h2"),link=document.createElement("a");link.href=a.url;link.target="_blank";link.rel="noopener";link.textContent=a.title;
+    link.addEventListener("click",()=>feed(a));link.addEventListener("auxclick",e=>{if(e.button===1)feed(a)});
+    h.appendChild(link);body.append(meta,h);
+    const sv=document.createElement("button");sv.className="save";sv.type="button";const on=state.saved.has(a.id);
+    sv.setAttribute("aria-pressed",String(on));sv.setAttribute("aria-label",on?"あとで読むから外す":"あとで読むに追加");sv.textContent=on?"★":"☆";
+    sv.onclick=()=>{on?state.saved.delete(a.id):state.saved.add(a.id);store.set("ns.saved",[...state.saved]);render()};
+    el.append(body,sv);list.appendChild(el)});
+  const empty=$("empty");empty.textContent="";
+  if(state.loaded&&items.length===0){const s=document.createElement("strong");
+    if(state.articles.length===0){s.textContent="まだニュースがありません";empty.append(s,"1時間ごとに自動で集めています。しばらくしてから開き直してください。")}
+    else if(state.cat==="saved"){s.textContent="保存した記事はまだありません";empty.append(s,"☆をタップすると、ここにまとまります。")}
+    else{s.textContent="該当するニュースはありません";empty.append(s,"別のカテゴリやキーワードを試してください。")}
+    empty.hidden=false}else empty.hidden=true}
+function setStatus(t,ok){$("statusText").textContent=t;$("dot").classList.toggle("ok",!!ok)}
+$("q").addEventListener("input",e=>{state.q=e.target.value;render()});
+
+async function load(){
+  try{
+    const res=await fetch("news.json?t="+Date.now(),{cache:"no-store"});
+    if(!res.ok)throw new Error(res.status);
+    const data=await res.json();
+    state.articles=data.articles||[];state.loaded=true;
+    const u=new Date(data.updatedAt);
+    setStatus(`${state.articles.length}件 ・ ${u.getMonth()+1}/${u.getDate()} ${String(u.getHours()).padStart(2,"0")}:${String(u.getMinutes()).padStart(2,"0")} 更新 ・ 見出しをタップすると${pet.name}が育ちます`,true);
+  }catch(e){state.loaded=true;setStatus("ニュースを読み込めませんでした。通信状況を確認して開き直してください。")}
+  render();
+}
+/* ---------- ジャンル選択 ---------- */
+let draft=[];
+function renderPicker(){
+  const box=$("gopts");box.textContent="";
+  GENRES.forEach(g=>{const b=document.createElement("button");b.type="button";b.className="gopt d-"+g;b.textContent=CAT_LABEL[g];
+    b.setAttribute("aria-pressed",String(draft.includes(g)));
+    b.onclick=()=>{draft=draft.includes(g)?draft.filter(x=>x!==g):GENRES.filter(x=>x===g||draft.includes(x));renderPicker()};box.appendChild(b)});
+  $("pickerSave").disabled=draft.length===0;
+  $("pickerHint").textContent=draft.length===0?"1つ以上選んでください":`${draft.length}ジャンルを選択中`;
+}
+function openPicker(first){
+  draft=chosen.slice();
+  $("pickerTitle").textContent=first?"見たいジャンルを選んでね":"ジャンルを選びなおす";
+  $("picker").hidden=false;renderPicker();
+  if(!first)$("picker").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}
+$("pickerSave").onclick=()=>{
+  if(!draft.length)return;
+  chosen=draft.slice();store.set("ns.genres",chosen);
+  $("picker").hidden=true;
+  say(chosen.length===1?`${CAT_LABEL[chosen[0]]}のニュース、いっしょに読もう！`:`${chosen.map(g=>CAT_LABEL[g]).join("・")}だね。たのしみ！`);
+  toast(`${chosen.length}ジャンルを表示します`);
+  renderRail();renderPet(true);render();scrollTo({top:0});
+};
+
+renderRail();renderPet(false);say(idleLine());load();
+if(!Array.isArray(savedGenres))openPicker(true);
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){renderPet(false);load()}});
+setInterval(()=>renderPet(false),5*60e3);
+</script>
+</body>
+</html>
