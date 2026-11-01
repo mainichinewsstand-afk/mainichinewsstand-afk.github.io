@@ -1,6 +1,38 @@
 {
- "updatedAt": "2026-11-01T10:50:24.982Z",
+ "updatedAt": "2026-11-01T11:46:21.376Z",
  "articles": [
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "弱さが露呈 闇サイトで日本に関心",
+   "url": "https://news.yahoo.co.jp/pickup/6600983?source=rss",
+   "publishedAt": "2026-11-01T11:40:33.000Z",
+   "id": "74cb83279932"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "「家族系」配信 相次ぐ収益化停止",
+   "url": "https://news.yahoo.co.jp/pickup/6600981?source=rss",
+   "publishedAt": "2026-11-01T11:07:28.000Z",
+   "id": "2224ca30a65c"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "GMO子会社 9年外部閲覧可の状態",
+   "url": "https://news.yahoo.co.jp/pickup/6600980?source=rss",
+   "publishedAt": "2026-11-01T11:01:18.000Z",
+   "id": "5f0060fcb0e6"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "吉本の許可得ずライブ なぜ問題視",
+   "url": "https://news.yahoo.co.jp/pickup/6600979?source=rss",
+   "publishedAt": "2026-11-01T10:49:41.000Z",
+   "id": "0dee0588e734"
+  },
   {
    "category": "world",
    "source": "Yahoo!ニュース",
