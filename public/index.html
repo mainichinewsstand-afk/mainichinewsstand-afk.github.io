@@ -138,6 +138,11 @@ footer{font-size:.75rem;color:var(--muted);padding-block:8px calc(32px + env(saf
 .pactions span{font-size:.8rem;color:var(--muted)}
 .xp{--fill:var(--xp)}.food{--fill:var(--food)}
 @media (max-width:420px){.pet{grid-template-columns:104px 1fr;padding:14px}.stage,.stage svg{width:104px;height:104px}.say::before{left:44px}}
+.lede{margin:14px 0 0;font-size:.85rem;color:var(--muted);text-wrap:pretty}
+.intro{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);max-width:65ch}
+.intro h2{font:900 1.1rem var(--f-display);margin:0 0 8px;text-wrap:balance}
+.intro h3{font:700 .95rem var(--f-display);margin:18px 0 4px;text-wrap:balance}
+.intro p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.85}
 </style>
 </head>
 <body>
@@ -149,6 +154,7 @@ footer{font-size:.75rem;color:var(--muted);padding-block:8px calc(32px + env(saf
   </div>
 </header>
 <main class="wrap">
+  <p class="lede">ニュースを読むと、相棒のキャラクター「ヨミ」が育つ。好きなジャンルの最新ニュースを1時間ごとに届ける、無料のニュース育成アプリです。</p>
   <section class="picker" id="picker" aria-labelledby="pickerTitle" hidden>
     <h2 id="pickerTitle">見たいジャンルを選んでね</h2>
     <p id="pickerNote">選んだジャンルのニュースだけが一覧に出ます。あとからいつでも変えられます。</p>
@@ -172,6 +178,18 @@ footer{font-size:.75rem;color:var(--muted);padding-block:8px calc(32px + env(saf
   <div class="status"><span class="dot" id="dot"></span><span id="statusText">ニュースを読み込んでいます…</span></div>
   <div class="list" id="list"></div>
   <div class="empty" id="empty" hidden></div>
+  <section class="intro" aria-labelledby="introTitle">
+    <h2 id="introTitle">まいにちニューススタンドとは</h2>
+    <p>まいにちニューススタンドは、ニュースを読むたびに相棒のキャラクター「ヨミ」が育っていく、無料のニュースアプリです。アカウント登録は不要で、ブラウザで開くだけですぐに使えます。ニュースを読む習慣をつけたい人や、毎日のニュースチェックを楽しくしたい人のために作りました。</p>
+    <h3>ニュースを読むとキャラクターが育つ</h3>
+    <p>見出しをタップして記事を読むと、ヨミに「けいけん」と「おなか」がたまります。たまごから始まり、ひよっこ、こども、おとな、ものしり博士の5段階に成長します。よく読むジャンルによって、色や持ち物、称号が変わります。</p>
+    <h3>好きなジャンルのニュースだけを読める</h3>
+    <p>国内、国際、経済、AI・テック、エンタメ、スポーツ、科学の7ジャンルから、見たいものだけを選べます。ニュースの見出しは各配信元から1時間ごとに自動で集めているので、いつ開いても新しいニュースが並びます。</p>
+    <h3>毎日のミッションで、ニュースを読む習慣に</h3>
+    <p>選んだジャンルのニュースを1本ずつ読むとミッション達成になり、ボーナスがもらえます。続けて読んだ日数も記録されるので、毎日のニュースチェックが自然と習慣になります。</p>
+    <h3>スマホのホーム画面に追加できる</h3>
+    <p>スマホのブラウザで開いて「ホーム画面に追加」を選ぶと、アプリのように起動できます。通信できないときも、前回読み込んだニュースを表示します。</p>
+  </section>
 </main>
 <footer class="wrap">見出しは各配信元の公開RSSから自動で集めています。記事の内容は、見出しをタップして配信元のページでお読みください。ヨミの成長記録は、この端末の中だけに保存されます。<br><a href="about.html" style="color:var(--accent)">運営者・お問い合わせ・プライバシーポリシー</a></footer>
 <div class="toast" id="toast" role="status"></div>
