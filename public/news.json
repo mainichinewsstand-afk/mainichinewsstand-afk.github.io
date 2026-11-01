@@ -1,6 +1,62 @@
 {
- "updatedAt": "2026-11-01T05:54:59.288Z",
+ "updatedAt": "2026-11-01T07:12:35.881Z",
  "articles": [
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "天皇賞秋 ダノンデサイルがV",
+   "url": "https://news.yahoo.co.jp/pickup/6600957?source=rss",
+   "publishedAt": "2026-11-01T07:07:44.000Z",
+   "id": "2a6532213a66"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "米中間選挙 事前投票が過去最多",
+   "url": "https://news.yahoo.co.jp/pickup/6600955?source=rss",
+   "publishedAt": "2026-11-01T07:06:17.000Z",
+   "id": "81faf4d83317"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "真剣佑が改名「前田」は父の名字",
+   "url": "https://news.yahoo.co.jp/pickup/6600954?source=rss",
+   "publishedAt": "2026-11-01T07:04:54.000Z",
+   "id": "f48f50795057"
+  },
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "アマゾン奥地で相次ぐ 子の異変",
+   "url": "https://news.yahoo.co.jp/pickup/6600956?source=rss",
+   "publishedAt": "2026-11-01T07:00:58.000Z",
+   "id": "afacf304e4a4"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "伊藤大海 ポスティング申請へ",
+   "url": "https://news.yahoo.co.jp/pickup/6600950?source=rss",
+   "publishedAt": "2026-11-01T06:35:15.000Z",
+   "id": "bfb27c82400f"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "「ドパ親」に頭を抱える家族 背景",
+   "url": "https://news.yahoo.co.jp/pickup/6600953?source=rss",
+   "publishedAt": "2026-11-01T06:29:23.000Z",
+   "id": "88dbb6273214"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "米国産ジャガイモ 国会論点に浮上",
+   "url": "https://news.yahoo.co.jp/pickup/6600947?source=rss",
+   "publishedAt": "2026-11-01T06:10:45.000Z",
+   "id": "72746f553cc0"
+  },
   {
    "category": "dom",
    "source": "Yahoo!ニュース",
