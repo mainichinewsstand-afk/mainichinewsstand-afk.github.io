@@ -1,6 +1,38 @@
 {
- "updatedAt": "2026-11-01T09:54:43.667Z",
+ "updatedAt": "2026-11-01T10:50:24.982Z",
  "articles": [
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "エムバペとキティ謝罪 中国の怒り",
+   "url": "https://news.yahoo.co.jp/pickup/6600978?source=rss",
+   "publishedAt": "2026-11-01T10:33:29.000Z",
+   "id": "a36d4bcbf490"
+  },
+  {
+   "category": "tech",
+   "source": "Yahoo!ニュース",
+   "title": "GMO攻撃者は何者か 識者の指摘",
+   "url": "https://news.yahoo.co.jp/pickup/6600977?source=rss",
+   "publishedAt": "2026-11-01T10:30:00.000Z",
+   "id": "916034706248"
+  },
+  {
+   "category": "sports",
+   "source": "Yahoo!ニュース",
+   "title": "大学駅伝 8区で12チーム繰り上げ",
+   "url": "https://news.yahoo.co.jp/pickup/6600976?source=rss",
+   "publishedAt": "2026-11-01T10:26:02.000Z",
+   "id": "e7fc0213acb4"
+  },
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "2日未明 18年ぶりプレセペ星団食",
+   "url": "https://news.yahoo.co.jp/pickup/6600968?source=rss",
+   "publishedAt": "2026-11-01T10:14:27.000Z",
+   "id": "259724a901b8"
+  },
   {
    "category": "sports",
    "source": "Yahoo!ニュース",
