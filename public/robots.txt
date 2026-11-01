@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mainichinewsstand-afk.github.io/sitemap.xml
