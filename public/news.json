@@ -1,6 +1,30 @@
 {
- "updatedAt": "2026-11-01T08:08:30.756Z",
+ "updatedAt": "2026-11-01T08:57:03.560Z",
  "articles": [
+  {
+   "category": "world",
+   "source": "Yahoo!ニュース",
+   "title": "韓国の10月輸出額 前年比ほぼ倍増",
+   "url": "https://news.yahoo.co.jp/pickup/6600964?source=rss",
+   "publishedAt": "2026-11-01T08:38:35.000Z",
+   "id": "7e17985991f7"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "個人でライブ主催 吉本が契約終了",
+   "url": "https://news.yahoo.co.jp/pickup/6600962?source=rss",
+   "publishedAt": "2026-11-01T08:27:52.000Z",
+   "id": "db19ec18d7f5"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "羽田美智子 母の介護で感じた限界",
+   "url": "https://news.yahoo.co.jp/pickup/6600960?source=rss",
+   "publishedAt": "2026-11-01T08:10:47.000Z",
+   "id": "a01fbf919448"
+  },
   {
    "category": "sports",
    "source": "Yahoo!ニュース",
@@ -832,14 +856,6 @@
    "url": "https://news.yahoo.co.jp/pickup/6600588?source=rss",
    "publishedAt": "2026-10-29T09:50:19.000Z",
    "id": "35fdc11a7f0e"
-  },
-  {
-   "category": "tech",
-   "source": "ITmedia AI+",
-   "title": "ChatGPTのPro・Businessプランで「API利用」可能に 月最大500ドル分",
-   "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002728/",
-   "publishedAt": "2026-10-29T08:46:39.000Z",
-   "id": "e43227d543cd"
   }
  ]
 }
