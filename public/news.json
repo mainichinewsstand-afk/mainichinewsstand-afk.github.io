@@ -1,6 +1,30 @@
 {
- "updatedAt": "2026-11-01T13:54:35.974Z",
+ "updatedAt": "2026-11-01T14:49:16.240Z",
  "articles": [
+  {
+   "category": "sci",
+   "source": "Yahoo!ニュース",
+   "title": "生命起源巡る理論 定説覆る可能性",
+   "url": "https://news.yahoo.co.jp/pickup/6600999?source=rss",
+   "publishedAt": "2026-11-01T14:44:54.000Z",
+   "id": "a701ced71a03"
+  },
+  {
+   "category": "dom",
+   "source": "Yahoo!ニュース",
+   "title": "農相政治団体 寄付3000万円不記載",
+   "url": "https://news.yahoo.co.jp/pickup/6601002?source=rss",
+   "publishedAt": "2026-11-01T14:25:40.000Z",
+   "id": "e78ebbae3429"
+  },
+  {
+   "category": "ent",
+   "source": "Yahoo!ニュース",
+   "title": "「ぼざろ」新作映画制作 来年公開",
+   "url": "https://news.yahoo.co.jp/pickup/6601000?source=rss",
+   "publishedAt": "2026-11-01T14:14:26.000Z",
+   "id": "c6b69200426a"
+  },
   {
    "category": "ent",
    "source": "Yahoo!ニュース",
